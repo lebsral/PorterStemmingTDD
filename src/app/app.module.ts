@@ -5,6 +5,8 @@ import { HttpModule } from '@angular/http';
 
 import { AppComponent } from './app.component';
 
+import { PorterstemmingService } from './services/porterstemming.service';
+
 @NgModule({
   declarations: [
     AppComponent
@@ -14,7 +16,9 @@ import { AppComponent } from './app.component';
     FormsModule,
     HttpModule
   ],
-  providers: [],
+  providers: [
+    PorterstemmingService,
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
