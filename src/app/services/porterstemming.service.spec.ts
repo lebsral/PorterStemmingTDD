@@ -12,5 +12,8 @@ describe('Service: Porterstemming', () => {
 
   it('should ...', inject([PorterstemmingService], (service: PorterstemmingService) => {
     expect(service).toBeTruthy();
+    expect(service.stemming('a')).toBe('a');
+    expect(service.stemming('aaron')).toBe('aaron');
+    expect(service.stemming('aback')).toBe('aback');
   }));
 });
