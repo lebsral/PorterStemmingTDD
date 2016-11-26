@@ -23,14 +23,25 @@ it('should return words that end in ed without the ed...', inject([Porterstemmin
 
 
 it('should return words that end in an e without the e...', inject([PorterstemmingService], (service: PorterstemmingService) => {
-  expect(service).toBeTruthy();
   expect(service.stemming('abase')).toBe('abas');
   expect(service.stemming('abate')).toBe('abat');
 }));
 
+it('should return words that end in an ement without the ement...', inject([PorterstemmingService], (service: PorterstemmingService) => {
+  expect(service.stemming('abatement')).toBe('abat');
+  expect(service.stemming('abattement')).toBe('abatt');
+}));
+
+it('should return words that end in an ements without the ements...', inject([PorterstemmingService], (service: PorterstemmingService) => {
+  expect(service.stemming('abatements')).toBe('abat');
+}));
+
+it('should return words that end in an es without the es...', inject([PorterstemmingService], (service: PorterstemmingService) => {
+  expect(service.stemming('abates')).toBe('abat');
+}));
+
 
 it('should return words that do not change as the same...', inject([PorterstemmingService], (service: PorterstemmingService) => {
-  expect(service).toBeTruthy();
   expect(service.stemming('a')).toBe('a');
   expect(service.stemming('aaron')).toBe('aaron');
   expect(service.stemming('aback')).toBe('aback');
