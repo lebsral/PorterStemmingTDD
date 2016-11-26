@@ -22,9 +22,14 @@ it('should return words that end in ed without the ed...', inject([Porterstemmin
 }));
 
 
+// it('should return words that end in s without the s...', inject([PorterstemmingService], (service: PorterstemmingService) => {
+//   expect(service.stemming('abbots')).toBe('abbot');
+// }));
+
 it('should return words that end in an e without the e...', inject([PorterstemmingService], (service: PorterstemmingService) => {
   expect(service.stemming('abase')).toBe('abas');
   expect(service.stemming('abate')).toBe('abat');
+  expect(service.stemming('abbe')).toBe('abb');
 }));
 
 it('should return words that end in an ement without the ement...', inject([PorterstemmingService], (service: PorterstemmingService) => {
@@ -40,6 +45,18 @@ it('should return words that end in an es without the es...', inject([Porterstem
   expect(service.stemming('abates')).toBe('abat');
 }));
 
+it('should return words that end in an y with an i...', inject([PorterstemmingService], (service: PorterstemmingService) => {
+  expect(service.stemming('abbey')).toBe('abbei');
+}));
+it('should return words that end in an ys with an i...', inject([PorterstemmingService], (service: PorterstemmingService) => {
+  expect(service.stemming('abbeys')).toBe('abbei');
+}));
+it('should return words that end in an able without the able...', inject([PorterstemmingService], (service: PorterstemmingService) => {
+  expect(service.stemming('abbominable')).toBe('abbomin');
+}));
+
+
+
 
 it('should return words that do not change as the same...', inject([PorterstemmingService], (service: PorterstemmingService) => {
   expect(service.stemming('a')).toBe('a');
@@ -48,5 +65,7 @@ it('should return words that do not change as the same...', inject([Porterstemmi
   expect(service.stemming('abaissiez')).toBe('abaissiez');
   expect(service.stemming('abandon')).toBe('abandon');
   expect(service.stemming('abash')).toBe('abash');
+  expect(service.stemming('abbess')).toBe('abbess');
+  expect(service.stemming('abbot')).toBe('abbot');
 }));
 });
