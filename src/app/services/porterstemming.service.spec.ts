@@ -54,6 +54,9 @@ it('should return words that end in an ys with an i...', inject([PorterstemmingS
 it('should return words that end in an able without the able...', inject([PorterstemmingService], (service: PorterstemmingService) => {
   expect(service.stemming('abbominable')).toBe('abbomin');
 }));
+// it('should return words that end in an ated without the ated...', inject([PorterstemmingService], (service: PorterstemmingService) => {
+//   expect(service.stemming('abbreviated')).toBe('abbrevi');
+// }));
 
 
 
