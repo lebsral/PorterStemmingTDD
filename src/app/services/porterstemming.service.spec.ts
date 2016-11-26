@@ -10,13 +10,29 @@ describe('Service: Porterstemming', () => {
     });
   });
 
-  it('should return words that do not change as the same...', inject([PorterstemmingService], (service: PorterstemmingService) => {
+  it('should return a truthy service', inject([PorterstemmingService], (service: PorterstemmingService) => {
     expect(service).toBeTruthy();
-    expect(service.stemming('a')).toBe('a');
-    expect(service.stemming('aaron')).toBe('aaron');
-    expect(service.stemming('aback')).toBe('aback');
-    expect(service.stemming('abaissiez')).toBe('abaissiez');
-    expect(service.stemming('abandon')).toBe('abandon');
-    expect(service.stemming('abandoned')).toBe('abandon');
   }));
+
+
+it('should return words that end in ed without the ed...', inject([PorterstemmingService], (service: PorterstemmingService) => {
+  expect(service.stemming('abandoned')).toBe('abandon');
+}));
+
+
+it('should return words that end in an e without the e...', inject([PorterstemmingService], (service: PorterstemmingService) => {
+  expect(service).toBeTruthy();
+  expect(service.stemming('abase')).toBe('abas');
+}));
+
+
+it('should return words that do not change as the same...', inject([PorterstemmingService], (service: PorterstemmingService) => {
+  expect(service).toBeTruthy();
+  expect(service.stemming('a')).toBe('a');
+  expect(service.stemming('aaron')).toBe('aaron');
+  expect(service.stemming('aback')).toBe('aback');
+  expect(service.stemming('abaissiez')).toBe('abaissiez');
+  expect(service.stemming('abandon')).toBe('abandon');
+  expect(service.stemming('abash')).toBe('abash');
+}));
 });
