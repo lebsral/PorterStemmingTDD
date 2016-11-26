@@ -17,12 +17,15 @@ describe('Service: Porterstemming', () => {
 
 it('should return words that end in ed without the ed...', inject([PorterstemmingService], (service: PorterstemmingService) => {
   expect(service.stemming('abandoned')).toBe('abandon');
+  expect(service.stemming('abashed')).toBe('abash');
+  expect(service.stemming('abated')).toBe('abat');
 }));
 
 
 it('should return words that end in an e without the e...', inject([PorterstemmingService], (service: PorterstemmingService) => {
   expect(service).toBeTruthy();
   expect(service.stemming('abase')).toBe('abas');
+  expect(service.stemming('abate')).toBe('abat');
 }));
 
 
