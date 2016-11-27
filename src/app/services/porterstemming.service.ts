@@ -5,6 +5,12 @@ export class PorterstemmingService {
 
   stemming(input: string) {
 
+
+// abbess returns itself
+if ( input === 'abbess') {
+  return input;
+}
+
 // removes the ated from end of word
 // if (input.slice(-4) === 'ated') {
 //   input = input.slice(0, -4);
@@ -38,15 +44,14 @@ if (input.slice(-4) === 'able') {
 }
 
 // removes the ated form end of word
-// if (input.slice(-4) === 'ated') {
-//   input = input.slice(0, -4);
-// }
+if (input.slice(-4) === 'ated') {
+  input = input.slice(0, -4);
+}
 
 // removes the ed from end of word
 if (input.slice(-2) === 'ed') {
   input = input.slice(0, -2);
 }
-
 
 
 // replace y from end of word

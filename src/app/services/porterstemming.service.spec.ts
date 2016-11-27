@@ -56,12 +56,9 @@ describe('Service: Porterstemming', () => {
     expect(service.stemming('abbominable')).toBe('abbomin');
   }));
 
-  // it('should return words that end in an ated without the ated...', inject([PorterstemmingService], (service: PorterstemmingService) => {
-  //   expect(service.stemming('abbreviated')).toBe('abbrevi');
-  // }));
-
-
-
+  it('should return words that end in an ated without the ated...', inject([PorterstemmingService], (service: PorterstemmingService) => {
+    expect(service.stemming('abbreviated')).toBe('abbrevi');
+  }));
 
   it('should return words that do not change as the same...', inject([PorterstemmingService], (service: PorterstemmingService) => {
     expect(service.stemming('a')).toBe('a');
