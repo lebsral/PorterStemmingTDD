@@ -19,6 +19,7 @@ describe('Service: Porterstemming', () => {
     expect(service.stemming('abandoned')).toBe('abandon');
     expect(service.stemming('abashed')).toBe('abash');
     expect(service.stemming('abated')).toBe('abat');
+    expect(service.stemming('abed')).toBe('ab');
   }));
 
 
@@ -45,6 +46,14 @@ describe('Service: Porterstemming', () => {
     expect(service.stemming('abates')).toBe('abat');
   }));
 
+    it('should return words that end in an ation without the ation...', inject([PorterstemmingService], (service: PorterstemmingService) => {
+    expect(service.stemming('abdication')).toBe('abdic');
+  }));
+
+    it('should return words that end in an ion  without the ion...', inject([PorterstemmingService], (service: PorterstemmingService) => {
+    expect(service.stemming('abduction')).toBe('abduct');
+  }));
+
   it('should return words that end in an y with an i...', inject([PorterstemmingService], (service: PorterstemmingService) => {
     expect(service.stemming('abbey')).toBe('abbei');
   }));
@@ -67,7 +76,8 @@ describe('Service: Porterstemming', () => {
     expect(service.stemming('abaissiez')).toBe('abaissiez');
     expect(service.stemming('abandon')).toBe('abandon');
     expect(service.stemming('abash')).toBe('abash');
-    // expect(service.stemming('abbess')).toBe('abbess');
+    expect(service.stemming('abbess')).toBe('abbess');
     expect(service.stemming('abbot')).toBe('abbot');
+    expect(service.stemming('abel')).toBe('abel');
   }));
 });
