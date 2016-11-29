@@ -5,7 +5,6 @@ import { PorterstemmingService } from './porterstemming.service';
 import { Input as input } from './input';
 import { Output as output } from './output';
 
-
 describe('Service: ALL', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
@@ -13,19 +12,13 @@ describe('Service: ALL', () => {
     });
   });
 
-//   let input = [
-//       'zodiacs', 'zounds'
-//       ];
-//   let output = [
-//       'zodiac', 'zound'
-//       ];
-
     for(let x = 0; x < input.length; x++) {
     test_my_times_ten(input[x], output[x]);
 };
 
   function test_my_times_ten(input, output) {
-     it('should return words that end in an ion  without the ion...', inject([PorterstemmingService], (service: PorterstemmingService) => {
+     it('should return all the words with their stem', inject([PorterstemmingService], (service: PorterstemmingService) => {
       expect(service.stemming(input)).toEqual(output);
  }));
-  });
+  }
+  );
