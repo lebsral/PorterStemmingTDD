@@ -2,6 +2,9 @@
 
 import { TestBed, async, inject } from '@angular/core/testing';
 import { PorterstemmingService } from './porterstemming.service';
+import { Input as input } from './input';
+import { Output as output } from './output';
+
 
 describe('Service: ALL', () => {
   beforeEach(() => {
@@ -10,12 +13,12 @@ describe('Service: ALL', () => {
     });
   });
 
-  let input = [
-      'zodiacs', 'zounds'
-      ];
-  let output = [
-      'zodiac', 'zound'
-      ];
+//   let input = [
+//       'zodiacs', 'zounds'
+//       ];
+//   let output = [
+//       'zodiac', 'zound'
+//       ];
 
     for(let x = 0; x < input.length; x++) {
     test_my_times_ten(input[x], output[x]);
